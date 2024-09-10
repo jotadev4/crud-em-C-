@@ -1,0 +1,13 @@
+D:\crudemC#\crud-em-C-\bin\Debug\netcoreapp3.1\crud-em-C-.exe
+D:\crudemC#\crud-em-C-\bin\Debug\netcoreapp3.1\crud-em-C-.deps.json
+D:\crudemC#\crud-em-C-\bin\Debug\netcoreapp3.1\crud-em-C-.runtimeconfig.json
+D:\crudemC#\crud-em-C-\bin\Debug\netcoreapp3.1\crud-em-C-.runtimeconfig.dev.json
+D:\crudemC#\crud-em-C-\bin\Debug\netcoreapp3.1\crud-em-C-.dll
+D:\crudemC#\crud-em-C-\bin\Debug\netcoreapp3.1\crud-em-C-.pdb
+D:\crudemC#\crud-em-C-\obj\Debug\netcoreapp3.1\crud-em-C-.csprojAssemblyReference.cache
+D:\crudemC#\crud-em-C-\obj\Debug\netcoreapp3.1\crud-em-C-.AssemblyInfoInputs.cache
+D:\crudemC#\crud-em-C-\obj\Debug\netcoreapp3.1\crud-em-C-.AssemblyInfo.cs
+D:\crudemC#\crud-em-C-\obj\Debug\netcoreapp3.1\crud-em-C-.csproj.CoreCompileInputs.cache
+D:\crudemC#\crud-em-C-\obj\Debug\netcoreapp3.1\crud-em-C-.dll
+D:\crudemC#\crud-em-C-\obj\Debug\netcoreapp3.1\crud-em-C-.pdb
+D:\crudemC#\crud-em-C-\obj\Debug\netcoreapp3.1\crud-em-C-.genruntimeconfig.cache
