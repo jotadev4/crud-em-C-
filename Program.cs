@@ -5,23 +5,23 @@ namespace CadastroClientes
 {
     class Program
     {
+        // Lista para armazenar os clientes
         static List<Cliente> clientes = new List<Cliente>();
 
         static void Main(string[] args)
         {
+            // Variável para controlar o loop do menu
             bool executando = true;
 
             while (executando)
             {
-                Console.WriteLine("Selecione uma opção:");
-                Console.WriteLine("1 - Adicionar cliente");
-                Console.WriteLine("2 - Visualizar clientes");
-                Console.WriteLine("3 - Editar cliente");
-                Console.WriteLine("4 - Excluir cliente");
-                Console.WriteLine("5 - Sair");
+                // Exibe o menu de opções para o usuário
+                ExibirMenu();
 
-                int opcao = Convert.ToInt32(Console.ReadLine());
+                // Lê a opção escolhida pelo usuário
+                int opcao = ObterOpcaoUsuario();
 
+                // Processa a opção escolhida
                 switch (opcao)
                 {
                     case 1:
@@ -37,54 +37,85 @@ namespace CadastroClientes
                         ExcluirCliente();
                         break;
                     case 5:
-                        executando = false;
+                        executando = false; // Encerra o programa
                         break;
                     default:
-                        Console.WriteLine("Opção inválida.");
+                        Console.WriteLine("Opção inválida. Por favor, escolha uma opção válida.");
                         break;
                 }
             }
         }
 
+        // Método para exibir o menu de opções
+        static void ExibirMenu()
+        {
+            Console.WriteLine("Selecione uma opção:");
+            Console.WriteLine("1 - Adicionar cliente");
+            Console.WriteLine("2 - Visualizar clientes");
+            Console.WriteLine("3 - Editar cliente");
+            Console.WriteLine("4 - Excluir cliente");
+            Console.WriteLine("5 - Sair");
+        }
+
+        // Método para obter a opção do usuário
+        static int ObterOpcaoUsuario()
+        {
+            Console.Write("Digite a opção desejada: ");
+            return Convert.ToInt32(Console.ReadLine());
+        }
+
+        // Método para adicionar um novo cliente
         static void AdicionarCliente()
         {
-            Console.WriteLine("Digite o nome do cliente: ");
+            Console.Write("Digite o nome do cliente: ");
             string nome = Console.ReadLine();
 
-            Console.WriteLine("Digite o e-mail do cliente: ");
+            Console.Write("Digite o e-mail do cliente: ");
             string email = Console.ReadLine();
 
+            // Cria um novo objeto Cliente e adiciona à lista
             Cliente cliente = new Cliente(nome, email);
             clientes.Add(cliente);
 
             Console.WriteLine("Cliente adicionado com sucesso.");
         }
 
+        // Método para visualizar todos os clientes
         static void VisualizarClientes()
         {
+            if (clientes.Count == 0)
+            {
+                Console.WriteLine("Nenhum cliente cadastrado.");
+                return;
+            }
+
+            // Itera sobre a lista de clientes e exibe seus detalhes
             foreach (Cliente cliente in clientes)
             {
-                Console.WriteLine("Nome: " + cliente.Nome);
-                Console.WriteLine("E-mail: " + cliente.Email);
+                Console.WriteLine($"Nome: {cliente.Nome}");
+                Console.WriteLine($"E-mail: {cliente.Email}");
                 Console.WriteLine("----------------------");
             }
         }
 
+        // Método para editar os detalhes de um cliente existente
         static void EditarCliente()
         {
-            Console.WriteLine("Digite o nome do cliente que deseja editar: ");
+            Console.Write("Digite o nome do cliente que deseja editar: ");
             string nome = Console.ReadLine();
 
-            Cliente cliente = clientes.Find(c => c.Nome == nome);
+            // Encontra o cliente com o nome fornecido
+            Cliente cliente = clientes.Find(c => c.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase));
 
             if (cliente != null)
             {
-                Console.WriteLine("Digite o novo nome do cliente: ");
+                Console.Write("Digite o novo nome do cliente: ");
                 string novoNome = Console.ReadLine();
 
-                Console.WriteLine("Digite o novo e-mail do cliente: ");
+                Console.Write("Digite o novo e-mail do cliente: ");
                 string novoEmail = Console.ReadLine();
 
+                // Atualiza os detalhes do cliente
                 cliente.Nome = novoNome;
                 cliente.Email = novoEmail;
 
@@ -96,15 +127,18 @@ namespace CadastroClientes
             }
         }
 
+        // Método para excluir um cliente da lista
         static void ExcluirCliente()
         {
-            Console.WriteLine("Digite o nome do cliente que deseja excluir: ");
+            Console.Write("Digite o nome do cliente que deseja excluir: ");
             string nome = Console.ReadLine();
 
-            Cliente cliente = clientes.Find(c => c.Nome == nome);
+            // Encontra o cliente com o nome fornecido
+            Cliente cliente = clientes.Find(c => c.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase));
 
             if (cliente != null)
             {
+                // Remove o cliente da lista
                 clientes.Remove(cliente);
                 Console.WriteLine("Cliente excluído com sucesso.");
             }
@@ -115,11 +149,13 @@ namespace CadastroClientes
         }
     }
 
+    // Classe que representa um cliente
     class Cliente
     {
         public string Nome { get; set; }
         public string Email { get; set; }
 
+        // Construtor da classe Cliente
         public Cliente(string nome, string email)
         {
             Nome = nome;
