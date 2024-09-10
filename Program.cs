@@ -10,7 +10,6 @@ namespace CadastroClientes
 
         static void Main(string[] args)
         {
-            // Variável para controlar o loop do menu
             bool executando = true;
 
             while (executando)
@@ -69,6 +68,13 @@ namespace CadastroClientes
         {
             Console.Write("Digite o nome do cliente: ");
             string nome = Console.ReadLine();
+
+            // Verifica se já existe um cliente com o mesmo nome
+            if (clientes.Exists(c => c.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase)))
+            {
+                Console.WriteLine("Cliente já cadastrado. Não é possível adicionar clientes duplicados.");
+                return;
+            }
 
             Console.Write("Digite o e-mail do cliente: ");
             string email = Console.ReadLine();
