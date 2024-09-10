@@ -10,15 +10,15 @@ namespace CadastroClientes
 
         static void Main(string[] args)
         {
-            bool executando = true;
+          int opcao = 0; // Inicializa a opção
 
-            while (executando)
+            while (opcao != 5)
             {
                 // Exibe o menu de opções para o usuário
                 ExibirMenu();
 
                 // Lê a opção escolhida pelo usuário
-                int opcao = ObterOpcaoUsuario();
+                opcao = ObterOpcaoUsuario();
 
                 // Processa a opção escolhida
                 switch (opcao)
@@ -36,7 +36,7 @@ namespace CadastroClientes
                         ExcluirCliente();
                         break;
                     case 5:
-                        executando = false; // Encerra o programa
+                        Console.WriteLine("Saindo..."); // Encerra o programa
                         break;
                     default:
                         Console.WriteLine("Opção inválida. Por favor, escolha uma opção válida.");
