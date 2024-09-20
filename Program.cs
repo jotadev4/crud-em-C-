@@ -10,7 +10,7 @@ namespace CadastroClientes
 
         static void Main(string[] args)
         {
-          int opcao = 0; // Inicializa a opção
+            int opcao = 0; // Inicializa a opção
 
             while (opcao != 5)
             {
@@ -69,15 +69,15 @@ namespace CadastroClientes
             Console.Write("Digite o nome do cliente: ");
             string nome = Console.ReadLine();
 
-            // Verifica se já existe um cliente com o mesmo nome
-            if (clientes.Exists(c => c.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase)))
-            {
-                Console.WriteLine("Cliente já cadastrado. Não é possível adicionar clientes duplicados.");
-                return;
-            }
-
             Console.Write("Digite o e-mail do cliente: ");
             string email = Console.ReadLine();
+
+            // Verifica se já existe um cliente com o mesmo e-mail
+            if (clientes.Exists(c => c.Email.Equals(email, StringComparison.OrdinalIgnoreCase)))
+            {
+                Console.WriteLine("E-mail já cadastrado. Não é possível adicionar clientes com o mesmo e-mail.");
+                return;
+            }
 
             // Cria um novo objeto Cliente e adiciona à lista
             Cliente cliente = new Cliente(nome, email);
