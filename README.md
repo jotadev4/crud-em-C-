@@ -1,2 +1,2 @@
-# crud-em-C-
+# crud-em-C#
 Construção de um codigo CRUD simples em C#
